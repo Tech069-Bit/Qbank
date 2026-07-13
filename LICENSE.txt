@@ -1,0 +1,10 @@
+Copyright (c) 2026 Dr. Vicky. All rights reserved.
+
+This repository is made public for viewing purposes only.
+
+No permission is granted to copy, modify, distribute, sublicense, or use
+this software or its source code, in whole or in part, for any purpose,
+without the prior written consent of the copyright holder.
+
+Forking or cloning this repository does not grant any usage rights beyond
+those permitted by GitHub's own Terms of Service for viewing public code.
