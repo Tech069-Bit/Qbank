@@ -1,0 +1,73 @@
+{
+  "id": "/index.html",
+  "name": "QBank Center",
+  "short_name": "QBank Center",
+  "description": "Import, organize, and practice question banks — offline-capable study companion.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "lang": "en",
+  "dir": "ltr",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "launch_handler": { "client_mode": "focus-existing" },
+  "edge_side_panel": { "preferred_width": 480 },
+  "background_color": "#f4f6fa",
+  "theme_color": "#0f766e",
+  "categories": ["education", "productivity"],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "screenshots": [
+    {
+      "src": "screenshots/home-narrow.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "QBank Center home screen"
+    },
+    {
+      "src": "screenshots/practice-narrow.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Practice mode with history filters"
+    },
+    {
+      "src": "screenshots/home-wide.png",
+      "sizes": "1324x651",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "QBank Center on a larger screen"
+    }
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
