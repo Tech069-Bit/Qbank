@@ -1,33 +1,36 @@
 # QBank Center
 
-A self-contained PWA (single-file app + manifest + service worker + icons).
+A self-contained web app, packaged as an installable PWA (Progressive Web App). No build step, no npm install — just static files.
 
-## Deploy on GitHub Pages
+## Files in this repo (all at root, no subfolders)
+- `index.html` — the app itself (HTML/CSS/JS all inline)
+- `manifest.json` — PWA manifest (app name, icons, colors, display mode)
+- `sw.js` — service worker (caches the app so it works offline and can be "installed")
+- `icon-192.png` / `icon-512.png` — app icons used for the install prompt and home-screen icon
+- `README.md` — this file
 
-1. Create a new GitHub repository (public, unless you have GitHub Pro/Enterprise for private Pages).
-2. Upload all the files in this zip to the **root** of the repo (no subfolders):
-   - `index.html`
-   - `manifest.webmanifest`
-   - `service-worker.js`
-   - `icon-192.png`
-   - `icon-512.png`
-   - `icon-192-maskable.png`
-   - `icon-512-maskable.png`
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
-5. Pick the branch (usually `main`) and folder `/ (root)`, then **Save**.
-6. Wait a minute or two, then your app will be live at:
+## 1. Push to GitHub
+1. Create a new repo.
+2. Add all 5 files above to the repo **root** (no subfolders).
+3. `git add . && git commit -m "Initial commit" && git push`
+
+## 2. Turn on GitHub Pages
+1. In the repo, go to **Settings → Pages**.
+2. Under "Build and deployment", set **Source** to `Deploy from a branch`.
+3. Set **Branch** to `main` (or `master`), folder `/ (root)`.
+4. Save. Your app will be live at:
    `https://<your-username>.github.io/<repo-name>/`
 
-## Notes
+**Important:** PWA install only works over **HTTPS** (which GitHub Pages provides automatically) — it will not work if you just double-click `index.html` locally, since service workers require a real web server origin.
 
-- Everything lives at the same level (no subfolders) because the manifest, service worker,
-  and icons must be same-origin, sibling files next to `index.html` for the browser to
-  treat the app as installable (Android "Add to Home screen" → real app, not just a shortcut).
-- The service worker caches the app shell for offline use and auto-updates itself
-  whenever you push new files and the app checks for updates (or the SW's own update check runs).
-- If you rename the repo or move it, no changes are needed — all paths in `index.html`,
-  `manifest.webmanifest`, and `service-worker.js` are relative.
-- If you ever change `index.html` (or any cached file) and don't see updates reflected,
-  bump `CACHE_NAME` in `service-worker.js` (e.g. `qbank-center-v2`) — this forces
-  the browser to treat it as a new service worker and refresh the cache.
+## 3. Install it as an app
+Once the GitHub Pages URL is live:
+
+- **Android (Chrome):** open the URL → tap the **⋮** menu → **"Install app"** (or you'll see an automatic "Add to Home screen" banner).
+- **iPhone/iPad (Safari):** open the URL → tap the **Share** icon → **"Add to Home Screen"**.
+- **Desktop (Chrome/Edge):** open the URL → click the **install icon** (⊕ or a small monitor icon) in the address bar → **Install**.
+
+Once installed, it opens in its own window/icon, no browser chrome, and (thanks to `sw.js`) keeps working even with no internet connection.
+
+## Updating the app later
+If you edit `index.html`, bump the version string in `sw.js` (`CACHE_VERSION`, e.g. `qbank-cache-v2`) so installed devices pick up the new version instead of serving a stale cached copy.
